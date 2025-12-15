@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.bu": "yaml",
+    "*.container": "ini",
+    "*.conf": "bitbake",
+    "*.inc": "bitbake"
+  }
+}

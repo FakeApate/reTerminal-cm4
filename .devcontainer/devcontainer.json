@@ -1,0 +1,24 @@
+{
+  "name": "yocto",
+  "image": "crops/poky:fedora-40",
+  "mounts": [
+    "source=${localWorkspaceFolder}/work,target=/workdir,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/utils,target=/utils,type=bind,consistency=cached"
+  ],
+  "workspaceFolder": "/workdir",
+  "postCreateCommand": "/utils/setup_env.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "yocto-project.yocto-bitbake",
+        "redhat.vscode-yaml",
+        "tintinweb.graphviz-interactive-preview"
+      ],
+      "settings": {
+        "bitbake.pathToBuildFolder": "${workspaceFolder}/build",
+        "bitbake.pathToEnvScript": "${workspaceFolder}/layers/openembedded-core/oe-init-build-env",
+        "bitbake.pathToBitbakeFolder": "${workspaceFolder}/layers/bitbake"
+      }
+    }
+  }
+}
