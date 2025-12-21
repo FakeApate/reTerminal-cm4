@@ -3,11 +3,12 @@
   "image": "crops/poky:fedora-40",
   "mounts": [
     "source=${localWorkspaceFolder}/work,target=/workdir,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/utils,target=/utils,type=bind,consistency=cached",
-    "source=/mnt/yocto/sstate,target=/sstate,type=bind,consistency=cached"
+    "source=/mnt/yocto/sstate,target=/sstate,type=bind,consistency=cached",
+    "source=/mnt/yocto/cache,target=/cache,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/meta-butteros,target=/workdir/layers/meta-butteros,type=bind,consistency=cached"
   ],
   "workspaceFolder": "/workdir",
-  "postCreateCommand": "/utils/setup_env.sh",
+  "postCreateCommand": "python3 -m pip install --user --upgrade pip kas",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -21,8 +22,5 @@
         "bitbake.pathToBitbakeFolder": "${workspaceFolder}/layers/bitbake"
       }
     }
-  },
-  "containerEnv": {
-    "SSTATE_DIR": "/sstate"
   }
 }
