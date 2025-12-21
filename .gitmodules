@@ -1,0 +1,3 @@
+[submodule "meta-butteros"]
+	path = meta-butteros
+	url = https://github.com/FakeApate/meta-butteros
